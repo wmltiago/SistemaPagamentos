@@ -8,9 +8,9 @@ public class ConnectionFactory {
 
     public Connection getConnection() throws SQLException {
 
-	String nomeBanco = "gerenciador";
+	String nomeBanco = "SistemaPagamentos";
 	String usuario = "root";
-	String senha = "123456";
+	String senha = "@luno1fpe";
 
 	try {
 	    Class.forName("com.mysql.jdbc.Driver");
@@ -18,8 +18,7 @@ public class ConnectionFactory {
 	    throw new SQLException(e);
 	}
 
-	return DriverManager.getConnection("jdbc:mysql://localhost:3306/" 
-			+ nomeBanco, usuario, senha);
+	return DriverManager.getConnection("jdbc:mysql://localhost:3306/" + nomeBanco, usuario, senha);
     }
 
 }

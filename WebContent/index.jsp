@@ -15,7 +15,7 @@
 	DT. Vencimento:<input type="text" name="DtVencimento"></input><br>
 	 Valor:<input type="text" name="ValorFatura"></input><br>
 	  Nome Cliente:<input type="text" name="NomeCliente"></input><br>
-	   Quantidade Boletos:<input type="text" name="qtBoletos"></input><br>
+	   Quantidade Boletos:<input type="number" name="qtBoletos"></input><br>
 	   <input type="submit" value="enviar"></input>
 	   </form>
 </body>
