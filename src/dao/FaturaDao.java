@@ -23,14 +23,14 @@ public class FaturaDao {
 	public void salvarFatura(Fatura fatura) {
 
 		try {
-			String sql = "INSERT INTO Fatura (CodigoFatura, ValorFatura, DataVencimento, QtBoletos) VALUES (?,?,?,?)";
+			String sql = "INSERT INTO fatura (codigoFatura,nomeCliente, valorFatura, dtVencimento, qtBoletos) VALUES (?,?,?,?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			
 			stmt.setInt(1, fatura.getCodFatura());
-			
-			stmt.setDouble(2, fatura.getValorTotal());
-			stmt.setDate(3, new java.sql.Date(fatura.getDataVencimento().getTime()));
-			stmt.setInt(4, fatura.getQtBoletos());
+			stmt.setString(2,fatura.getNomeCliente());
+			stmt.setDouble(3, fatura.getValorTotal());
+			stmt.setDate(4, new java.sql.Date(fatura.getDataVencimento().getTime()));
+			stmt.setInt(5, fatura.getQtBoletos());
 			
 			
 

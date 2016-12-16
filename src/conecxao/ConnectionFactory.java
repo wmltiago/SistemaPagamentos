@@ -8,9 +8,9 @@ public class ConnectionFactory {
 
     public Connection getConnection() throws SQLException {
 
-	String nomeBanco = "SistemaPagamentos";
+	String nomeBanco = "sistemapagamentos";
 	String usuario = "root";
-	String senha = "@luno1fpe";
+	String senha = "";
 
 	try {
 	    Class.forName("com.mysql.jdbc.Driver");
