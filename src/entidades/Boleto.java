@@ -3,9 +3,18 @@ import java.util.Date;
 
 public class Boleto {
 
+	private int iDBoletos;
 	private int codBoleto;
 	private Date DataPagamento;
 	private double valorPago;
+	
+	
+	public int getiDBoletos() {
+		return iDBoletos;
+	}
+	public void setiDBoletos(int iDBoletos) {
+		this.iDBoletos = iDBoletos;
+	}
 	
 	
 	public int getCodBoleto() {
