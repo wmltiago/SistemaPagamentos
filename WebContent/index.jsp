@@ -11,7 +11,7 @@
 <title>Sistema de Pagamentos</title>
 </head>
 <body><form method="POST" action="boletos.jsp">
-	Cod. Fatura:<input type="text" name="CodFatura"></input> <br>
+	
 	DT. Vencimento:<input type="text" name="DtVencimento"></input><br>
 	 Valor:<input type="text" name="ValorFatura"></input><br>
 	  Nome Cliente:<input type="text" name="NomeCliente"></input><br>

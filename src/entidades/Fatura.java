@@ -7,10 +7,9 @@ private int codFatura;
 private Date DataVencimento;
 private double valorTotal;
 private String nomeCliente;
-private int qtBoletos;
 
-public int getCodFatura() {
-	return codFatura;
+
+public int getCodFatura() {	return codFatura;
 }
 public void setCodFatura(int codFatura) {
 	this.codFatura = codFatura;
@@ -33,12 +32,7 @@ public String getNomeCliente() {
 public void setNomeCliente(String nomeCliente) {
 	this.nomeCliente = nomeCliente;
 }
-public int getQtBoletos() {
-	return qtBoletos;
-}
-public void setQtBoletos(int qtBoletos) {
-	this.qtBoletos = qtBoletos;
-}
+
 
 
 

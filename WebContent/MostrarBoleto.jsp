@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ page import="entidades.Fatura" %>
-<%@ page import="java.util.Date" %>
-    <%@ page import="entidades.Boleto" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="entidades.Fatura"%>
+<%@ page import="java.util.Date"%>
+<%@ page import="entidades.Boleto"%>
+<%@ page import="dao.BoletoDao"%>
+<%@ page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,18 +15,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%  
-Fatura F = new Fatura();
-int qtBoletos = Integer.parseInt(request.getParameter("qtBolentos"));
-for(int i = 1; i<=qtBoletos;i++){
-String Dtpagamento = request.getParameter("DtPagamento"+i);
-String Valor = request.getParameter("Valor"+i);
-out.print(Valor);%><br><%
-out.print(Dtpagamento);%><br><%
+	<%  
+Boleto B = new Boleto();
+int qtBoletos = Integer.parseInt(request.getParameter("qtBoletos"));
 
+ for(int i=1;i <=qtBoletos;i++ ){
+	 String DtPagamento = request.getParameter("DtPagamento"+i);
+	 Date dataConvertida = null;
 
-}
-
+	 dataConvertida = new SimpleDateFormat("dd/MM/yyyy").parse(DtPagamento);
+	 double Valor = Double.parseDouble(request.getParameter("Valor"+i));
+	 B.setDataPagamento(dataConvertida);
+	 B.setValorPago(Valor);
+	 BoletoDao Bd = new BoletoDao();
+	 
+	 Bd.salvarBoleto(B);
+ }
 
 
 

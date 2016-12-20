@@ -14,6 +14,7 @@ public class PagamentoDao {
 			try {
 				this.connection = new ConnectionFactory().getConnection();
 			} catch (SQLException e) {
+			
 				throw new RuntimeException(e);
 			}
 		}

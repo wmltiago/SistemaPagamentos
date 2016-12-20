@@ -3,6 +3,7 @@
 <%@ page import="entidades.Fatura" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="dao.FaturaDao" %>
+<%@ page import="entidades.Boleto" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,7 +11,7 @@
  
 Fatura F = new Fatura();
  
-int CodFatura = Integer.parseInt(request.getParameter("CodFatura"));
+
 String DtVencimento = request.getParameter("DtVencimento");
 Date dataConvertida = null;
 
@@ -22,11 +23,8 @@ String NomeCliente = request.getParameter("NomeCliente");
 int qtBoletos = Integer.parseInt(request.getParameter("qtBoletos"));
 
 F.setDataVencimento(dataConvertida);
-F.setQtBoletos(qtBoletos);
-F.setCodFatura(CodFatura);
 F.setNomeCliente(NomeCliente);
 F.setValorTotal(ValorFatura);
-
 FaturaDao fat = new FaturaDao();
 fat.salvarFatura(F);
 
@@ -41,14 +39,14 @@ fat.salvarFatura(F);
 <body>
 Cod Fatura : <%=F.getCodFatura() %><br>
 Nome cliente : <%=F.getNomeCliente() %><br>
-Quantidade boletos : <%=F.getQtBoletos() %><br>
+
 Data Vencimento :<%=F.getDataVencimento() %><br>
 Valor total a Ser Pago: <%=F.getValorTotal() %><br>
 ----------------------------------------------------
 
 	<form action="MostrarBoleto.jsp" method="POST">
 		<%
-		
+		 Boleto B = new Boleto();
 			
 			
 
@@ -63,9 +61,11 @@ Valor total a Ser Pago: <%=F.getValorTotal() %><br>
 
 
 		<%
+		 
+		
 			}
 		%>
-		<input type="hidden" name="qtBolentos" value="<%=qtBoletos%>"></input>
+		<input type="hidden"  name="qtBoletos" value="<%=qtBoletos%>"></input>
 		<input type="submit" value="Enviar"></input>
 	</form>
 
