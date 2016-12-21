@@ -66,7 +66,9 @@ Valor total a Ser Pago: <%=F.getValorTotal() %><br>
 			}
 		%>
 		<input type="hidden"  name="qtBoletos" value="<%=qtBoletos%>"></input>
+		<input type="hidden"  name="ValorFatura" value="<%=ValorFatura%>"></input>
 		<input type="submit" value="Enviar"></input>
+		
 	</form>
 
 

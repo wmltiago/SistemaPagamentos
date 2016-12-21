@@ -7,6 +7,12 @@ public class Movimentacao {
 	private Date dataAtual;
 	private int numeroDeBoletos;
 	private double totalPago;
+	
+	
+	
+	
+	
+	
 	public int getCodMovimentacao() {
 		return codMovimentacao;
 	}

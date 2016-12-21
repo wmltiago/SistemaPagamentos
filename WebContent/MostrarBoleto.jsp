@@ -18,23 +18,37 @@
 	<%  
 Boleto B = new Boleto();
 int qtBoletos = Integer.parseInt(request.getParameter("qtBoletos"));
+double ValorFatura = Double.parseDouble(request.getParameter("ValorFatura"));
 
- for(int i=1;i <=qtBoletos;i++ ){
+double x=0;
+
+
+
+for(int i=1;i <=qtBoletos;i++ ){
 	 String DtPagamento = request.getParameter("DtPagamento"+i);
+	 
 	 Date dataConvertida = null;
 
 	 dataConvertida = new SimpleDateFormat("dd/MM/yyyy").parse(DtPagamento);
 	 double Valor = Double.parseDouble(request.getParameter("Valor"+i));
+	 
 	 B.setDataPagamento(dataConvertida);
 	 B.setValorPago(Valor);
 	 BoletoDao Bd = new BoletoDao();
-	 
+	  x = x + Valor;
 	 Bd.salvarBoleto(B);
+	 
  }
 
+if (ValorFatura == x){
+	out.print("Total da fatura paga "+x);
+}
+
+out.print(x);
 
 
 
 %>
+
 </body>
 </html>
