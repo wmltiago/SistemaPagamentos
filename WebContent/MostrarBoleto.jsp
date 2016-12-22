@@ -20,7 +20,8 @@ Boleto B = new Boleto();
 int qtBoletos = Integer.parseInt(request.getParameter("qtBoletos"));
 double ValorFatura = Double.parseDouble(request.getParameter("ValorFatura"));
 
-double x=0;
+double vBoleto=0;
+int numBoleto;
 
 
 
@@ -35,16 +36,34 @@ for(int i=1;i <=qtBoletos;i++ ){
 	 B.setDataPagamento(dataConvertida);
 	 B.setValorPago(Valor);
 	 BoletoDao Bd = new BoletoDao();
-	  x = x + Valor;
+	 
 	 Bd.salvarBoleto(B);
+	 
+	 vBoleto = vBoleto + Valor;
+	 numBoleto = numBoleto + i;
 	 
  }
 
-if (ValorFatura == x){
-	out.print("Total da fatura paga "+x);
+if (ValorFatura == vBoleto){
+	out.print("Fatura PAGA ");
+	out.print( " -----> " );
+	out.print(numBoleto+" Pagamentos do tipo BOLETO criados ");
 }
 
-out.print(x);
+if(ValorFatura < vBoleto){
+	out.print("Fatura PAGA ");
+	out.print( " -----> " );
+	out.print(numBoleto+" Pagamentos do tipo BOLETO criados ");
+	out.print( " -----> " );
+	double credito = vBoleto-ValorFatura;
+	out.print("Um crédito de  "+credito);
+}
+if(ValorFatura > vBoleto){
+	out.print("Fatura NÃO PAGA ");
+	out.print( " -----> " );
+	out.print(numBoleto+" Pagamentos do tipo BOLETO criados ");
+	
+}
 
 
 
