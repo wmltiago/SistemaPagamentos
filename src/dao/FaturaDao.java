@@ -19,6 +19,8 @@ public class FaturaDao {
 		}
 	}
 	
+	
+	
 	//OK
 	
 	public void salvarFatura(Fatura fatura) {

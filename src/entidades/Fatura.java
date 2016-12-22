@@ -9,6 +9,34 @@ private double valorTotal;
 private String nomeCliente;
 
 
+
+
+
+public String CondicaoDaFatura(double ValorFatura, double vBoleto){
+	
+	
+	
+	
+	if (ValorFatura == vBoleto){
+		return "Fatura PAGA";
+					
+	
+	}else{
+																//transformar isso em um metodo
+	}if(ValorFatura < vBoleto){
+		return "Fatura PAGA com credito";
+		
+		
+	}else{
+	}if(ValorFatura > vBoleto){
+		return "Fatura  NÂO PAGA";
+		
+		
+	}
+	return "Nada foi efetuado";
+}
+
+
 public int getCodFatura() {	return codFatura;
 }
 public void setCodFatura(int codFatura) {

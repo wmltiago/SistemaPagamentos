@@ -21,7 +21,7 @@ int qtBoletos = Integer.parseInt(request.getParameter("qtBoletos"));
 double ValorFatura = Double.parseDouble(request.getParameter("ValorFatura"));
 
 double vBoleto=0;
-int numBoleto;
+int numBoleto=0;
 
 
 
@@ -44,26 +44,8 @@ for(int i=1;i <=qtBoletos;i++ ){
 	 
  }
 
-if (ValorFatura == vBoleto){
-	out.print("Fatura PAGA ");
-	out.print( " -----> " );
-	out.print(numBoleto+" Pagamentos do tipo BOLETO criados ");
-}
-
-if(ValorFatura < vBoleto){
-	out.print("Fatura PAGA ");
-	out.print( " -----> " );
-	out.print(numBoleto+" Pagamentos do tipo BOLETO criados ");
-	out.print( " -----> " );
-	double credito = vBoleto-ValorFatura;
-	out.print("Um crédito de  "+credito);
-}
-if(ValorFatura > vBoleto){
-	out.print("Fatura NÃO PAGA ");
-	out.print( " -----> " );
-	out.print(numBoleto+" Pagamentos do tipo BOLETO criados ");
-	
-}
+Fatura F = new Fatura();
+ out.print(F.CondicaoDaFatura(ValorFatura, vBoleto));
 
 
 
